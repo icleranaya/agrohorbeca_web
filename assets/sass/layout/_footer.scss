@@ -1,0 +1,142 @@
+/* Footer */
+
+	#footer {
+		@include vendor('display', 'flex');
+		@include vendor('align-items', 'center');
+		@include vendor('justify-content', 'space-between');
+		flex-flow: column nowrap;
+		position: relative;
+		margin: 0;
+		line-height: 1em;
+		padding: 1.5em;
+		background: #f6f6f6;
+		color: #5f5b5b;
+		overflow: hidden;
+
+		> * {
+			margin-bottom: 0;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			&:hover {
+				color: _palette(main-colors, main);
+			}
+		}
+
+		ul {
+			&.menu {
+				margin: 0;
+
+				li {
+					border-left-color: _palette(accent3, border);
+					font-size: 0.9em;
+					p{
+						margin: 1.5em 0 0;
+					}
+				}
+			}
+		}
+
+		.icons{
+			@include vendor('display', 'flex');
+			flex-flow: row wrap;
+			width: 100%;
+			justify-content: space-evenly;
+			align-items: center;
+			margin-bottom: 1.5em;
+
+			@include breakpoint('<=small') {
+				flex-flow: column;
+			}
+
+			.logo{
+				height: 3.5em;
+			}
+
+			.label{
+				width: 0.8px;
+				height: 50px;
+				background: #5f5b5b;
+
+				@include breakpoint('<=small') {
+					display: none;
+					height: 45vh;
+				}
+			}
+	
+			.contact-list{
+				display: flex;
+				flex-flow: column nowrap;
+				text-align: center;
+
+				h2{
+					font-size: 2rem;
+					margin-bottom: 1rem;
+					color: _pallete(main-colors, main);
+				}
+
+				a{
+					font-size: 1rem;
+					font-weight: bold;
+				}
+			}
+
+			ul.media-icons {
+				display: flex;
+				flex-flow: row;
+				margin: 0;
+
+				.icon{
+					width: 1rem;
+    				height: 1rem;
+					border-radius: 5px;
+					color: _palette(main-colors, main) !important;
+					padding: 1.8rem;
+					margin: 0.5rem;
+					display: flex !important;
+					justify-content: center;
+					align-items: center;
+					font-size: 1em;
+					transition: all .5s ease-in-out;
+					&:hover{
+						color:  #ffff !important;
+						background: _palette(main-colors, main);
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			@include vendor('flex-direction', 'column');
+			@include vendor('justify-content', 'center');
+			line-height: 1.5em;
+			text-align: center;
+			padding: 2em 1em 2em 1em;
+
+			> * {
+				margin: 0 0 1em 0;
+			}
+		}
+
+		@include breakpoint('<=small') {
+			ul {
+				&.menu {
+					font-size: 1rem;
+					li {
+						border-left: none;
+						display: block;
+						line-height: inherit;
+						margin: 0.25em 0 0 0;
+						padding: 0.25em 0 0 0;
+
+						&:first-child {
+							margin-top: 0;
+							padding-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}

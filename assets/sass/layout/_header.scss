@@ -1,0 +1,103 @@
+/* Header */
+
+	#header {
+		position: fixed;
+		z-index: 10000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		background:  _palette(bg);
+		height: 3em;
+		line-height: 3em;
+		box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
+
+		img{
+    		margin-left: 1em;
+		}
+
+		nav {
+			position: absolute;
+			right: 0.5em;
+			top: 0;
+			height: 3em;
+			line-height: 3em;
+
+			ul {
+				margin: 0;
+
+				li {
+					display: inline-block;
+					margin-left: 0.5em;
+					font-size: 0.9em;
+
+					a {
+						display: block;
+						color: inherit;
+						position: relative;
+						text-decoration: none;
+						height: 3em;
+						line-height: 3em;
+						padding: 0 0.5em 0 0.5em;
+						outline: 0;
+						transition: all 0.3s ease-in-out;
+
+						&::after{
+							content: "";
+							position: absolute;
+							height: 2px;
+							bottom: 7px;
+							left: 0px;
+							right: 0px;
+							background: _palette(main-colors, main);
+							visibility: hidden;
+							transform: scaleX(0);
+							transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+						}
+
+						&:hover{
+							color: black;
+							&:after{
+								visibility: visible;
+								transform: scaleX(1);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			height: 2.5em;
+			line-height: 2.5em;
+
+			.logo{
+				height: 2.5em !important;
+				margin-left: 0 !important;
+				left: 30%;
+				position: absolute;
+			}
+
+			h1 {
+				text-align: center;
+				position: relative;
+				left: 0;
+				top: 0;
+				height: 2.5em;
+				line-height: 2.5em;
+
+				a {
+					font-size: 1em;
+				}
+			}
+
+			nav {
+				display: none;
+			}
+		}
+	}
+
+	body {
+		@include breakpoint('<=small') {
+			padding-top: 2.5em;
+		}
+	}

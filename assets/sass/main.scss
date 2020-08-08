@@ -1,0 +1,556 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
+@import url('font-awesome.min.css');
+
+// fonts.
+@font-face {
+	font-family: 'Assistant';
+	font-style: normal;
+	src: url(../fonts/Assistant/Assistant-Regular.ttf);
+}
+
+// Breakpoints.
+
+	@include breakpoints((
+		xxlarge: ( 1681px,  1920px ),
+		xlarge:  ( 1281px,  1680px ),
+		large:   ( 1001px,  1280px ),
+		medium:  ( 737px,   1000px ),
+		small:   ( 481px,   736px  ),
+		xsmall:  ( null,    480px  ),
+		xxsmall: (null,		370px)
+	));
+
+// Base.
+
+	@import 'base/reset';
+	@import 'base/page';
+	@import 'base/typography';
+
+// Component.
+
+	@import 'components/box';
+	@import 'components/button';
+	@import 'components/form';
+	@import 'components/icon';
+	@import 'components/image';
+	@import 'components/list';
+	@import 'components/actions';
+	@import 'components/icons';
+	@import 'components/section';
+	@import 'components/table';
+	@import 'components/poptrox-popup';
+	@import 'components/gallery';
+
+// Layout.
+
+	@import 'layout/header';
+	@import 'layout/main';
+	@import 'layout/footer';
+
+
+/* logo syle */
+.logo{
+	height: 3em;
+}
+
+/* highlight class */
+.highlight{
+	color:  _palette(main-colors, main);
+	font-weight: bold;
+}
+
+/* Intro */
+
+	#intro {
+		padding: 0;
+		.swiper-container{
+			width: 100vw;
+			height: 100vh;
+		}
+
+		.swiper-slide{
+			display: flex;
+    		justify-content: flex-start;
+			align-items: center;
+			.slider-text-container{
+				width: 50%;
+				margin-left: 25%;
+
+				@include breakpoint('<=small') {
+					width: 80%;
+					text-align: center;
+					margin-left: 10%;
+
+					h2{
+						font-size: 2rem !important;
+					}
+				}
+
+				h2{
+					font-size: 4rem;
+				}
+			}
+		}
+
+		.swiper-button-prev, .swiper-button-next{
+			outline: none;
+			&:focus{
+				border: none;
+			}
+		}
+
+		.swiper-pagination{
+			text-align: left;
+			margin-left: 25.1%;
+    		margin-bottom: 5%;
+
+			@include breakpoint('<=small') {
+				text-align: center;
+				margin-left: 0;
+			}
+
+			.swiper-pagination-bullet-active{
+				background: _palette(main-colors, main) !important;
+			}
+
+			.swiper-pagination-bullet{
+				width: 13px;
+				height: 13px;
+				background: _palette(bg);
+				opacity: .8;
+			}
+		}
+
+		.slide-1{
+			background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) 
+			,url(../../images/backgrounds/mesa_de_madera_con_vegetales.jpg) no-repeat;
+			background-size: cover;
+			background-position: center center;
+		}
+
+		.slide-2{
+			background:  linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) 
+			,url(../../images/backgrounds/campo_de_fresas.jpg) no-repeat;
+			background-size: cover;
+			background-position: center center;
+		}
+
+		.slide-3{
+			background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) 
+			,url(../../images/backgrounds/granjero_con_canasta_de_vegetales.jpg) no-repeat;
+			background-size: cover;
+			background-position: center center;
+		}
+	}
+
+/* One */
+
+	#one {
+		background: rgba(0,0,0,0.3);
+		min-height: 95%;
+
+		@include breakpoint('<=small') {
+			padding: 0;
+			min-height: 100%;
+		}
+
+		.about-img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			z-index: -1;
+			transform: rotateY(180deg);
+			opacity: 0;
+			transition: all 0.5s ease-in-out;
+		}
+
+		.bg-who{
+			background: url(../../images/backgrounds/canasta_de_vegetales.jpg);
+			background-size: cover;
+			background-position: left;
+		}
+
+		.bg-principios{
+			background: url(../../images/backgrounds/negocios_handshake.jpg);
+			background-size: cover;
+			background-position: left;
+		}
+
+		.bg-productos{
+			background: url(../../images/backgrounds/vegetales_y_hortalizas_fondo_de_madera.jpg);
+			background-size: cover;
+			background-position: left;
+		}
+
+		.about-wrapper {
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			padding-top: 5rem;
+
+
+			@include breakpoint('<=medium') {
+				width: 80%;
+				background-color: rgba(255, 255, 255, 0.9);
+			}
+
+			@include breakpoint('<=small') {
+				width: 100%;
+			}
+
+			.content-text{
+				line-height: 25px;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 3rem;
+				transition: all 0.5s ease-in-out;
+
+				@include breakpoint('<=xsmall') {
+					padding: 1rem;
+					h2{
+						margin-bottom: 1rem !important;
+					}
+				}
+
+				@include breakpoint('<=medium') {
+					line-height: 20px;
+
+					h2{
+						font-size: 1.5rem !important;
+					}
+				}
+
+				@include breakpoint('<=xxsmall'){
+					padding: 0.5rem;
+					line-height: 15px;
+				}
+
+				h2{
+					font-size: 2.5rem;
+					margin-bottom: 2rem;
+				}
+
+				p{
+					margin-bottom: 0.5rem;
+				}
+			}
+
+			.nosotros-panel{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 25%;
+				ul{
+					display: flex;
+					flex-flow: row nowrap;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					height: 100%;
+					margin: 0;
+					.panel-item{
+						width: 33.333%;
+						height: 100%;
+						display: flex;
+						flex-flow: column;
+						align-items: center;
+						justify-content: center;
+						cursor: pointer;
+						text-align: center;
+						color: #ffff;
+						transition: all 0.3s ease-in-out;
+
+						&:hover{
+							background: #ffff;
+						}
+
+						.panel-icon{
+							.icon-legend{
+								font-size: 2rem;
+							}
+						}
+					}
+
+					.item-1{
+						background: _palette(main-colors, main);
+						&:hover{
+							color: _palette(main-colors, main);
+						}
+					}
+
+					.item-2{
+						background: _palette(main-colors, mid-main);
+						&:hover{
+							color: _palette(main-colors, mid-main);
+						}
+					}
+
+					.item-3{
+						background: _palette(main-colors, main-dark);
+						&:hover{
+							color: _palette(main-colors, main-dark);
+						}
+					}
+				}
+			}
+
+			.quote-active{
+				opacity: 1;
+			}
+		}
+
+		.img-active{
+			opacity: 1;
+		}
+	}
+
+/* Two */
+
+	#two {
+		position: relative;
+		min-height: 95%;
+
+		@include breakpoint('<=small') {
+			padding: 0;
+		}
+
+		.about-img-slider{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+
+			.img-slide-1{
+				background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+				url(../../images/backgrounds/mesa_llena_de_vegetales.jpg) no-repeat;
+				background-size: cover;
+				background-position: center center;
+			}
+
+			.img-slide-2{
+				background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+				url(../../images/backgrounds/hortalizas_en_mesa_de_madera.jpg) no-repeat;
+				background-size: cover;
+				background-position: center center;
+			}
+
+			.img-slide-3{
+				background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+				url(../../images/backgrounds/tomates_sin_cosechar.jpg) no-repeat;
+				background-size: cover;
+				background-position: center center;
+			}
+
+			.img-slide-4{
+				background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+				url(../../images/backgrounds/atardecer_en_plantacion_verde.jpg) no-repeat;
+				background-size: cover;
+				background-position: center center;
+			}
+		}
+		
+		.layer.top{
+			width: calc(50vw + 500px);
+			height: 75%;
+			position: absolute;
+			transform: skew(-30deg);
+			margin-left: -450px;
+			display: flex;
+    		justify-content: flex-start;
+			align-items: center;
+			
+			@include breakpoint('<=medium') {
+				width: 55%;
+				height: 100%;
+				transform: none;
+				margin-left: 0;
+
+				.about-slider{
+					transform: none !important;
+					margin-left: 0 !important;
+					margin-right: 0 !important;
+				}
+			}
+
+			@include breakpoint('<=small') {
+				width: 100%;
+			}
+
+			.about-slider{
+				transform: skew(30deg);
+				margin-left: 450px;
+				margin-right: 55px;
+				height: 85%;
+
+				.swiper-wrapper{
+					.swiper-slide{
+						.text-container{
+							height: 100%;
+							display: flex;
+							flex-flow: column nowrap;
+							justify-content: center;
+							align-items: flex-start;
+							line-height: 25px;
+
+							@include breakpoint('<=small') {
+								justify-content: flex-start;
+								align-items: center;
+
+								h2{
+									font-size: 2rem !important;
+								}
+							}
+
+							h2{
+								font-size: 2.5rem;
+								margin-bottom: 2rem;
+							}
+
+							p{
+								margin-bottom: 0.5rem;
+							}
+						}
+					}
+				}
+
+				.swiper-pagination{
+					display: flex;
+					align-items: flex-start;
+
+					@include breakpoint('<=small') {
+						align-items: center;
+						justify-content: center;
+						bottom: 30px;
+					}
+
+					.swiper-pagination-bullet-active{
+						background: _palette(main-colors, main);
+					}
+				}
+			}
+		}
+
+		.btn-wrapper{
+		    position: absolute;
+			right: 8%;
+			bottom: 0;
+			width: 20rem;
+			height: 10rem;
+			display: flex;
+			flex-flow: row nowrap;
+			padding: 0;
+			@include vendor('transition', 'transform #{_duration(fade-in)} ease');
+
+			@include breakpoint('<=medium') {
+				right: 0%;
+			}
+
+			@include breakpoint('<=small') {
+				width: 100%;
+				height: 5rem;
+			}
+
+			.swiper-button-custom-prev, .swiper-button-custom-next{
+				width: 50%;
+				height: 100%;
+				outline: none;
+				cursor: pointer;
+			    display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 2rem;
+				color: #ffff;
+				transition: all 0.3s ease-in-out;
+
+				&:hover{
+					background: #ffff;
+					color: _palette(main-colors, main);
+				}
+			}
+
+			.swiper-button-custom-prev{
+				background-color: _palette(main-colors, main);
+			}
+
+			.swiper-button-custom-next{
+				background-color: _palette(main-colors, main-dark);
+			}
+		}
+
+		&.inactive {
+			.box {
+				@include vendor('transform', 'skew(-30deg) translateX(-100%)');
+			}
+
+			.btn-wrapper.box{
+				@include vendor('transform', 'translateY(100%) !important');
+			}
+		}
+	}
+
+/* Work */
+	#work{
+		padding: 3rem 0 0;
+		margin: 0;
+
+		.gallery-tittle{
+			font-size: 1.8rem;
+		}
+
+		.content{
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+
+/* Contact */
+
+	#contact {
+		background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+		url(../../images/backgrounds/frutas_y_verduras_variadas_en_fondo_de_madera.jpg);
+		overflow: hidden;
+		padding: 3em 0 0;
+
+		header{
+			h2{
+				color: _palette(main-colors, main);
+			}
+
+			p{
+				color: #ffff;
+			}
+		}
+
+		.box {
+			@include vendor('transition', 'transform #{_duration(fade-in)} ease');
+			@include vendor('transform', 'translateY(0)');
+			position: relative;
+		}
+
+		&.inactive {
+			.box {
+				@include vendor('transform', 'translateY(100%)');
+			}
+		}
+
+		@include breakpoint('<=small') {
+			.box {
+				padding: 1.5em 1.5em 2em 1.5em;
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			.box {
+				padding: 1em 1em 2em 1em;
+			}
+		}
+	}

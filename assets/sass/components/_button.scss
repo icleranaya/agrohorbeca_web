@@ -1,0 +1,42 @@
+/* Button */
+
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"],
+	.button,
+	button {
+		@include vendor('appearance', 'none');
+	    background-color: _palette(main-colors, main);
+		border: 1px solid _palette(main-colors, main);
+    	color: #ffffff;
+    	cursor: pointer;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	outline: 0;
+		padding: 1rem 1.5rem;
+    	position: relative;
+    	text-align: center;
+    	text-decoration: none;
+		font-size: 1rem;
+		font-weight: bold;
+		transition: all 0.3s ease-in-out;
+		&:hover, &:active, &:focus {
+			color: _palette(main-colors, main);
+			background-color: transparent;
+		}
+
+		&.style2 {
+			background-color: transparent;
+			border: solid 2px _palette(border);
+			color: inherit;
+
+			&:hover {
+				background-color: transparentize(_palette(border), 0.75);
+			}
+
+			&:active {
+				background-color: transparentize(_palette(border), 0.625);
+			}
+		}
+	}

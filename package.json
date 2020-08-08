@@ -1,0 +1,23 @@
+{
+  "name": "agroinsoca",
+  "version": "1.0.0",
+  "description": "Pagina web de Agroinsoca",
+  "main": "index.html",
+  "scripts": {
+    "sass": "node-sass -w assets/sass/ -o assets/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/prisma_web/agroinsoca_web_v1_dev.git"
+  },
+  "author": "Juan Soto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/prisma_web/agroinsoca_web_v1_dev/issues"
+  },
+  "homepage": "https://gitlab.com/prisma_web/agroinsoca_web_v1_dev#readme",
+  "dependencies": {
+    "node-sass": "^4.10.0",
+    "sass": "^1.15.2"
+  }
+}
