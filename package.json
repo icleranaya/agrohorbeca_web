@@ -17,7 +17,7 @@
   },
   "homepage": "https://gitlab.com/prisma_web/agroinsoca_web_v1_dev#readme",
   "dependencies": {
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "sass": "^1.15.2"
   }
 }
